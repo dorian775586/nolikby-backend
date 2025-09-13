@@ -3,7 +3,7 @@ from sqlalchemy.orm import sessionmaker, declarative_base
 import os
 
 # Использование переменной окружения для подключения к базе данных
-DATABASE_URL = os.getenv("postgresql://skidkidb_31ck_user:5uBzGP7oIQXBoaYiadoat6tH9WOc2Ggg@dpg-d32j3d8dl3ps7384vs80-a.frankfurt-postgres.render.com/skidkidb_31ck")
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 # Создание движка SQLAlchemy
 engine = create_engine(DATABASE_URL)
