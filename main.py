@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
 from typing import List, Optional
+import os
 
 from database import engine, SessionLocal, Base, Offer
 
@@ -97,4 +98,5 @@ def update_offer(offer_id: int, offer: OfferModel, db: Session = Depends(get_db)
     return existing_offer
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    port = int(os.getenv("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
